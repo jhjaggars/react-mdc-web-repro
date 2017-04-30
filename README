@@ -1,0 +1,36 @@
+This is a reproducer for the error I've encountered.
+
+```
+➜  react-repro git:(master) ✗ npm install
+... skip ...
+➜  react-repro git:(master) ✗ node_modules/.bin/webpack
+Hash: 226e49c3ec72168e5c9e
+Version: webpack 2.4.1
+Time: 5038ms
+    Asset    Size  Chunks                    Chunk Names
+bundle.js  359 kB       0  [emitted]  [big]  main
+   [0] ./~/react/react.js 56 bytes {0} [built]
+  [12] ./~/react-mdc-web/lib/Icon/index.js 355 bytes {0} [built]
+  [25] ./~/react-mdc-web/lib/FormField/index.js 370 bytes {0} [built]
+  [38] ./~/react-mdc-web/lib/index.js 9.39 kB {0} [built]
+  [39] ./index.jsx 3 kB {0} [built]
+  [40] ./~/react-mdc-web/lib/Button/index.js 361 bytes {0} [built]
+  [48] ./~/react-mdc-web/lib/Card/index.js 1.55 kB {0} [built]
+  [51] ./~/react-mdc-web/lib/Checkbox/index.js 367 bytes {0} [built]
+  [53] ./~/react-mdc-web/lib/Content/index.js 364 bytes {0} [built]
+  [59] ./~/react-mdc-web/lib/Dialog/index.js 1.18 kB {0} [built]
+  [70] ./~/react-mdc-web/lib/Drawer/index.js 1.42 kB {0} [built]
+  [73] ./~/react-mdc-web/lib/Elevation/index.js 370 bytes {0} [built]
+ [102] ./~/react-mdc-web/lib/Menu/index.js 1.09 kB {0} [built]
+ [131] ./~/react-mdc-web/lib/Typography/index.js 2.47 kB {0} [built]
+ [135] ./~/react/lib/React.js 3.32 kB {0} [built]
+    + 134 hidden modules
+
+ERROR in ./~/react-mdc-web/lib/Menu/index.js
+Module not found: Error: Can't resolve '@material/menu/dist/mdc.menu.min.css' in '/home/jjaggars/code/react-repro/node_modules/react-mdc-web/lib/Menu'
+ @ ./~/react-mdc-web/lib/Menu/index.js 44:0-47
+ @ ./~/react-mdc-web/lib/index.js
+ @ ./index.jsx
+➜  react-repro git:(master) ✗ find node_modules -name "*mdc.menu.min.css"
+node_modules/react-mdc-web/node_modules/material-components-web/node_modules/@material/menu/dist/mdc.menu.min.css
+```
